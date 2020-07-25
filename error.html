@@ -7,4 +7,11 @@
 
 <body>
     <p>Sorry but we can't find that doc.</p>
+    <p>Your link should be like:
+        <script type="text/javascript">
+            document.writeln(window.location.href
+                .replace("/error.html", "?doc=main.html")
+                .replace("/error", "?doc=main.html"));
+        </script>
+    </p>
 </body>
