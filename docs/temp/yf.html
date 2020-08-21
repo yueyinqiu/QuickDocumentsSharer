@@ -1,0 +1,1868 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>yf</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+
+
+/* Flowchart variables */
+/* Sequence Diagram variables */
+/* Gantt chart variables */
+/* state colors */
+.label {
+  
+  color: #333; }
+
+.label text {
+  fill: #333; }
+
+.node rect,
+.node circle,
+.node ellipse,
+.node polygon {
+  fill: #BDD5EA;
+  stroke: #9370DB;
+  stroke-width: 1px; }
+
+.node .label {
+  text-align: center; }
+
+.node.clickable {
+  cursor: pointer; }
+
+.arrowheadPath {
+  fill: lightgrey; }
+
+.edgePath .path {
+  stroke: lightgrey;
+  stroke-width: 1.5px; }
+
+.edgeLabel {
+  background-color: #e8e8e8;
+  text-align: center; }
+
+.cluster rect {
+  fill: #6D6D65;
+  stroke: rgba(255, 255, 255, 0.25);
+  stroke-width: 1px; }
+
+.cluster text {
+  fill: #F9FFFE; }
+
+div.mermaidTooltip {
+  position: absolute;
+  text-align: center;
+  max-width: 200px;
+  padding: 2px;
+  
+  font-size: 12px;
+  background: #6D6D65;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 100; }
+
+.actor {
+  stroke: #81B1DB;
+  fill: #BDD5EA; }
+
+text.actor {
+  fill: black;
+  stroke: none; }
+
+.actor-line {
+  stroke: lightgrey; }
+
+.messageLine0 {
+  stroke-width: 1.5;
+  stroke-dasharray: '2 2';
+  stroke: lightgrey; }
+
+.messageLine1 {
+  stroke-width: 1.5;
+  stroke-dasharray: '2 2';
+  stroke: lightgrey; }
+
+#arrowhead {
+  fill: lightgrey; }
+
+.sequenceNumber {
+  fill: white; }
+
+#sequencenumber {
+  fill: lightgrey; }
+
+#crosshead path {
+  fill: lightgrey !important;
+  stroke: lightgrey !important; }
+
+.messageText {
+  fill: lightgrey;
+  stroke: none; }
+
+.labelBox {
+  stroke: #81B1DB;
+  fill: #BDD5EA; }
+
+.labelText {
+  fill: #323D47;
+  stroke: none; }
+
+.loopText {
+  fill: lightgrey;
+  stroke: none; }
+
+.loopLine {
+  stroke-width: 2;
+  stroke-dasharray: '2 2';
+  stroke: #81B1DB; }
+
+.note {
+  stroke: rgba(255, 255, 255, 0.25);
+  fill: #fff5ad; }
+
+.noteText {
+  fill: black;
+  stroke: none;
+  
+  font-size: 14px; }
+
+.activation0 {
+  fill: #f4f4f4;
+  stroke: #666; }
+
+.activation1 {
+  fill: #f4f4f4;
+  stroke: #666; }
+
+.activation2 {
+  fill: #f4f4f4;
+  stroke: #666; }
+
+/** Section styling */
+.section {
+  stroke: none;
+  opacity: 0.2; }
+
+.section0 {
+  fill: rgba(255, 255, 255, 0.3); }
+
+.section2 {
+  fill: #EAE8B9; }
+
+.section1,
+.section3 {
+  fill: white;
+  opacity: 0.2; }
+
+.sectionTitle0 {
+  fill: #F9FFFE; }
+
+.sectionTitle1 {
+  fill: #F9FFFE; }
+
+.sectionTitle2 {
+  fill: #F9FFFE; }
+
+.sectionTitle3 {
+  fill: #F9FFFE; }
+
+.sectionTitle {
+  text-anchor: start;
+  font-size: 11px;
+  text-height: 14px;
+   }
+
+/* Grid and axis */
+.grid .tick {
+  stroke: lightgrey;
+  opacity: 0.3;
+  shape-rendering: crispEdges; }
+
+.grid path {
+  stroke-width: 0; }
+
+/* Today line */
+.today {
+  fill: none;
+  stroke: #DB5757;
+  stroke-width: 2px; }
+
+/* Task styling */
+/* Default task */
+.task {
+  stroke-width: 2; }
+
+.taskText {
+  text-anchor: middle;
+   }
+
+.taskText:not([font-size]) {
+  font-size: 11px; }
+
+.taskTextOutsideRight {
+  fill: #323D47;
+  text-anchor: start;
+  font-size: 11px;
+   }
+
+.taskTextOutsideLeft {
+  fill: #323D47;
+  text-anchor: end;
+  font-size: 11px; }
+
+/* Special case clickable */
+.task.clickable {
+  cursor: pointer; }
+
+.taskText.clickable {
+  cursor: pointer;
+  fill: #003163 !important;
+  font-weight: bold; }
+
+.taskTextOutsideLeft.clickable {
+  cursor: pointer;
+  fill: #003163 !important;
+  font-weight: bold; }
+
+.taskTextOutsideRight.clickable {
+  cursor: pointer;
+  fill: #003163 !important;
+  font-weight: bold; }
+
+/* Specific task settings for the sections*/
+.taskText0,
+.taskText1,
+.taskText2,
+.taskText3 {
+  fill: #323D47; }
+
+.task0,
+.task1,
+.task2,
+.task3 {
+  fill: #BDD5EA;
+  stroke: rgba(255, 255, 255, 0.5); }
+
+.taskTextOutside0,
+.taskTextOutside2 {
+  fill: lightgrey; }
+
+.taskTextOutside1,
+.taskTextOutside3 {
+  fill: lightgrey; }
+
+/* Active task */
+.active0,
+.active1,
+.active2,
+.active3 {
+  fill: #81B1DB;
+  stroke: rgba(255, 255, 255, 0.5); }
+
+.activeText0,
+.activeText1,
+.activeText2,
+.activeText3 {
+  fill: #323D47 !important; }
+
+/* Completed task */
+.done0,
+.done1,
+.done2,
+.done3 {
+  stroke: grey;
+  fill: lightgrey;
+  stroke-width: 2; }
+
+.doneText0,
+.doneText1,
+.doneText2,
+.doneText3 {
+  fill: #323D47 !important; }
+
+/* Tasks on the critical line */
+.crit0,
+.crit1,
+.crit2,
+.crit3 {
+  stroke: #E83737;
+  fill: #E83737;
+  stroke-width: 2; }
+
+.activeCrit0,
+.activeCrit1,
+.activeCrit2,
+.activeCrit3 {
+  stroke: #E83737;
+  fill: #81B1DB;
+  stroke-width: 2; }
+
+.doneCrit0,
+.doneCrit1,
+.doneCrit2,
+.doneCrit3 {
+  stroke: #E83737;
+  fill: lightgrey;
+  stroke-width: 2;
+  cursor: pointer;
+  shape-rendering: crispEdges; }
+
+.milestone {
+  transform: rotate(45deg) scale(0.8, 0.8); }
+
+.milestoneText {
+  font-style: italic; }
+
+.doneCritText0,
+.doneCritText1,
+.doneCritText2,
+.doneCritText3 {
+  fill: #323D47 !important; }
+
+.activeCritText0,
+.activeCritText1,
+.activeCritText2,
+.activeCritText3 {
+  fill: #323D47 !important; }
+
+.titleText {
+  text-anchor: middle;
+  font-size: 18px;
+  fill: #323D47;
+   }
+
+g.classGroup text {
+  fill: #9370DB;
+  stroke: none;
+  
+  font-size: 10px; }
+  g.classGroup text .title {
+    font-weight: bolder; }
+
+g.classGroup rect {
+  fill: #BDD5EA;
+  stroke: #9370DB; }
+
+g.classGroup line {
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+.classLabel .box {
+  stroke: none;
+  stroke-width: 0;
+  fill: #BDD5EA;
+  opacity: 0.5; }
+
+.classLabel .label {
+  fill: #9370DB;
+  font-size: 10px; }
+
+.relation {
+  stroke: #9370DB;
+  stroke-width: 1;
+  fill: none; }
+
+#compositionStart {
+  fill: #9370DB;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#compositionEnd {
+  fill: #9370DB;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#aggregationStart {
+  fill: #BDD5EA;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#aggregationEnd {
+  fill: #BDD5EA;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#dependencyStart {
+  fill: #9370DB;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#dependencyEnd {
+  fill: #9370DB;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#extensionStart {
+  fill: #9370DB;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#extensionEnd {
+  fill: #9370DB;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+.commit-id,
+.commit-msg,
+.branch-label {
+  fill: lightgrey;
+  color: lightgrey;
+   }
+
+.pieTitleText {
+  text-anchor: middle;
+  font-size: 25px;
+  fill: #eee;
+}
+
+g.stateGroup text {
+  stroke: none;
+  font-size: 10px;
+}
+
+g.stateGroup circle {
+  fill: white !important;
+  stroke: white !important;
+}
+
+g.stateGroup .state-title {
+  font-weight: bolder;
+  fill: black; }
+
+g.stateGroup rect {
+  fill: #ececff;
+  stroke: #9370DB; }
+
+g.stateGroup line {
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+.transition {
+  stroke: #9370DB;
+  stroke-width: 1;
+  fill: none; }
+
+.stateGroup .composit {
+  fill: #555;
+  border-bottom: 1px; }
+
+.state-note {
+  stroke: rgba(255, 255, 255, 0.25);
+  fill: #fff5ad; }
+  .state-note text {
+    fill: black;
+    stroke: none;
+    font-size: 10px; }
+
+.stateLabel .box {
+  stroke: none;
+  stroke-width: 0;
+  fill: #BDD5EA;
+  opacity: 0.5; }
+
+.stateLabel text {
+  fill: black;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.cluster-label {
+  color:black;
+}
+
+.statediagram-cluster rect {
+  fill: #BDD5EA;
+  stroke: #9370DB; 
+  stroke-width: 1px;
+}
+.statediagram-cluster rect.outer {
+  rx: 5px;
+  ry: 5px;
+}
+.statediagram-state .divider {
+  stroke: #9370DB; 
+}
+
+.statediagram-state .title-state {
+  rx: 5px;
+  ry: 5px;
+}
+.statediagram-cluster.statediagram-cluster .inner {
+  fill: white;
+}
+.statediagram-cluster.statediagram-cluster-alt .inner {
+  fill: #e0e0e0;
+}
+
+.statediagram-cluster .inner {
+  rx:0;
+  ry:0;
+}
+
+.statediagram-state rect.basic {
+  rx: 5px;
+  ry: 5px;
+}
+.statediagram-state rect.divider {
+  stroke-dasharray: 10,10;
+  fill: #efefef;
+}
+
+.note-edge {
+  stroke-dasharray: 5;
+}
+
+.statediagram-note rect {
+  stroke: var(--cluster-border);
+  fill: #fff5ad;
+  stroke-width: 1px;
+  rx: 0;
+  ry: 0;
+}
+
+.node circle.state-start {
+  fill: black;
+  stroke: black;
+}
+.node circle.state-end {
+  fill: black;
+  stroke: white;
+  stroke-width: 1.5
+}
+#statediagram-barbEnd {
+  fill: #9370DB; 
+}
+
+/* CSS Document */
+
+/** code highlight */
+
+.cm-s-inner .cm-variable,
+.cm-s-inner .cm-operator,
+.cm-s-inner .cm-property {
+    color: #b8bfc6;
+}
+
+.cm-s-inner .cm-keyword {
+    color: #C88FD0;
+}
+
+.cm-s-inner .cm-tag {
+    color: #7DF46A;
+}
+
+.cm-s-inner .cm-attribute {
+    color: #7575E4;
+}
+
+.CodeMirror div.CodeMirror-cursor {
+    border-left: 1px solid #b8bfc6;
+    z-index: 3;
+}
+
+.cm-s-inner .cm-string {
+    color: #D26B6B;
+}
+
+.cm-s-inner .cm-comment,
+.cm-s-inner.cm-comment {
+    color: #DA924A;
+}
+
+.cm-s-inner .cm-header,
+.cm-s-inner .cm-def,
+.cm-s-inner.cm-header,
+.cm-s-inner.cm-def {
+    color: #8d8df0;
+}
+
+.cm-s-inner .cm-quote,
+.cm-s-inner.cm-quote {
+    color: #57ac57;
+}
+
+.cm-s-inner .cm-hr {
+    color: #d8d5d5;
+}
+
+.cm-s-inner .cm-link {
+    color: #d3d3ef;
+}
+
+.cm-s-inner .cm-negative {
+    color: #d95050;
+}
+
+.cm-s-inner .cm-positive {
+    color: #50e650;
+}
+
+.cm-s-inner .cm-string-2 {
+    color: #f50;
+}
+
+.cm-s-inner .cm-meta,
+.cm-s-inner .cm-qualifier {
+    color: #b7b3b3;
+}
+
+.cm-s-inner .cm-builtin {
+    color: #f3b3f8;
+}
+
+.cm-s-inner .cm-bracket {
+    color: #997;
+}
+
+.cm-s-inner .cm-atom,
+.cm-s-inner.cm-atom {
+    color: #84B6CB;
+}
+
+.cm-s-inner .cm-number {
+    color: #64AB8F;
+}
+
+.cm-s-inner .cm-variable {
+    color: #b8bfc6;
+}
+
+.cm-s-inner .cm-variable-2 {
+    color: #9FBAD5;
+}
+
+.cm-s-inner .cm-variable-3 {
+    color: #1cc685;
+}
+
+.CodeMirror-selectedtext,
+.CodeMirror-selected {
+    background: #4a89dc;
+    color: #fff !important;
+    text-shadow: none;
+}
+
+.CodeMirror-gutters {
+    border-right: none;
+}
+
+/* CSS Document */
+
+/** markdown source **/
+.cm-s-typora-default .cm-header, 
+.cm-s-typora-default .cm-property
+{
+    color: #cebcca;
+}
+
+.CodeMirror.cm-s-typora-default div.CodeMirror-cursor{
+    border-left: 3px solid #b8bfc6;
+}
+
+.cm-s-typora-default .cm-comment {
+    color: #9FB1FF;
+}
+
+.cm-s-typora-default .cm-string {
+    color: #A7A7D9
+}
+
+.cm-s-typora-default .cm-atom, .cm-s-typora-default .cm-number {
+    color: #848695;
+    font-style: italic;
+}
+
+.cm-s-typora-default .cm-link {
+    color: #95B94B;
+}
+
+.cm-s-typora-default .CodeMirror-activeline-background {
+    background: rgba(51, 51, 51, 0.72);
+}
+
+.cm-s-typora-default .cm-comment, .cm-s-typora-default .cm-code {
+	color: #8aa1e1;
+}@import "";
+@import "";
+@import "";
+
+:root {
+    --bg-color:  #363B40;
+    --side-bar-bg-color: #2E3033;
+    --text-color: #b8bfc6;
+
+    --select-text-bg-color:#4a89dc;
+
+    --item-hover-bg-color: #0a0d16;
+    --control-text-color: #b7b7b7;
+    --control-text-hover-color: #eee;
+    --window-border: 1px solid #555;
+
+    --active-file-bg-color: rgb(34, 34, 34);
+    --active-file-border-color: #8d8df0;
+
+    --primary-color: #a3d5fe;
+
+    --active-file-text-color: white;
+    --item-hover-bg-color: #70717d;
+    --item-hover-text-color: white;
+    --primary-color: #6dc1e7;
+
+    --rawblock-edit-panel-bd: #333;
+
+    --search-select-bg-color: #428bca;
+}
+
+html {
+    font-size: 16px;
+}
+
+html,
+body {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    background: #363B40;
+    background: var(--bg-color);
+    fill: currentColor;
+    line-height: 1.625rem;
+}
+
+#write {
+    max-width: 914px;
+}
+
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+html,
+body,
+button,
+input,
+select,
+textarea,
+div.code-tooltip-content {
+    color: #b8bfc6;
+    border-color: transparent;
+}
+
+div.code-tooltip,
+.md-hover-tip .md-arrow:after {
+    background: #333;
+}
+
+.popover.bottom > .arrow:after {
+    border-bottom-color: #333;
+}
+
+html,
+body,
+button,
+input,
+select,
+textarea {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+hr {
+    height: 2px;
+    border: 0;
+    margin: 24px 0 !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Lucida Grande", "Corbel", sans-serif;
+    font-weight: normal;
+    clear: both;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+    margin: 0;
+    padding: 0;
+    color: #DEDEDE
+}
+
+h1 {
+    font-size: 2.5rem;
+    /* 36px */
+    line-height: 2.75rem;
+    /* 40px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    letter-spacing: -1.5px;
+}
+
+h2 {
+    font-size: 1.63rem;
+    /* 24px */
+    line-height: 1.875rem;
+    /* 30px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    letter-spacing: -1px;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 1.17rem;
+    /* 18px */
+    line-height: 1.5rem;
+    /* 24px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    letter-spacing: -1px;
+    font-weight: bold;
+}
+
+h4 {
+    font-size: 1.12rem;
+    /* 16px */
+    line-height: 1.375rem;
+    /* 22px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    color: white;
+}
+
+h5 {
+    font-size: 0.97rem;
+    /* 16px */
+    line-height: 1.25rem;
+    /* 22px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    font-weight: bold;
+}
+
+h6 {
+    font-size: 0.93rem;
+    /* 16px */
+    line-height: 1rem;
+    /* 16px */
+    margin-bottom: 0.75rem;
+    color: white;
+}
+
+@media (min-width: 980px) {
+    h3.md-focus:before,
+    h4.md-focus:before,
+    h5.md-focus:before,
+    h6.md-focus:before {
+        color: #ddd;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        position: absolute;
+        left: -1.642857143rem;
+        top: .357142857rem;
+        float: left;
+        font-size: 9px;
+        padding-left: 2px;
+        padding-right: 2px;
+        vertical-align: bottom;
+        font-weight: normal;
+        line-height: normal;
+    }
+
+    h3.md-focus:before {
+        content: 'h3';
+    }
+
+    h4.md-focus:before {
+        content: 'h4';
+    }
+
+    h5.md-focus:before {
+        content: 'h5';
+        top: 0px;
+    }
+
+    h6.md-focus:before {
+        content: 'h6';
+        top: 0px;
+    }
+}
+
+a {
+    text-decoration: none;
+    outline: 0;
+}
+
+a:hover {
+    outline: 0;
+}
+
+a:focus {
+    outline: thin dotted;
+}
+
+sup.md-footnote {
+    background-color: #555;
+    color: #ddd;
+}
+
+p {
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+}
+
+p,
+ul,
+dd,
+ol,
+hr,
+address,
+pre,
+table,
+iframe,
+.wp-caption,
+.wp-audio-shortcode,
+.wp-video-shortcode {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    /* 24px */
+}
+
+li > blockquote {
+	margin-bottom: 0;
+}
+
+audio:not([controls]) {
+    display: none;
+}
+
+[hidden] {
+    display: none;
+}
+
+::-moz-selection {
+    background: #4a89dc;
+    color: #fff;
+    text-shadow: none;
+}
+
+*.in-text-selection,
+::selection {
+    background: #4a89dc;
+    color: #fff;
+    text-shadow: none;
+}
+
+ul,
+ol {
+    padding: 0 0 0 1.875rem;
+    /* 30px */
+}
+
+ul {
+    list-style: square;
+}
+
+ol {
+    list-style: decimal;
+}
+
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+    margin: 0;
+}
+
+b,
+th,
+dt,
+strong {
+    font-weight: bold;
+}
+
+i,
+em,
+dfn,
+cite {
+    font-style: italic;
+}
+
+blockquote {
+    padding-left: 1.875rem;
+    margin: 0 0 1.875rem 1.875rem;
+    border-left: solid 2px #474d54;
+    padding-left: 30px;
+    margin-top: 35px;
+}
+
+pre,
+code,
+kbd,
+tt,
+var {
+    font-size: 0.875rem;
+    font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+}
+
+code,
+tt,
+var {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+kbd {
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #fff;
+    background-color: #333;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,.25);
+}
+
+pre.md-fences {
+    padding: 10px 10px 10px 30px;
+    margin-bottom: 20px;
+    background: #333;
+}
+
+.CodeMirror-gutters {
+    background: #333;
+    border-right: 1px solid transparent;
+}
+
+.enable-diagrams pre.md-fences[lang="sequence"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="flow"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="mermaid"] .code-tooltip {
+    bottom: -2.2em;
+    right: 4px;
+}
+
+code,
+kbd,
+tt,
+var {
+    padding: 2px 5px;
+}
+
+table {
+    max-width: 100%;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+th,
+td {
+    padding: 5px 10px;
+    vertical-align: top;
+}
+
+a {
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+hr {
+    background: #474d54;
+    /* variable */
+}
+
+h1 {
+    margin-top: 2em;
+}
+
+a {
+    color: #e0e0e0;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #fff;
+}
+
+.md-inline-math script {
+    color: #81b1db;
+}
+
+b,
+th,
+dt,
+strong {
+    color: #DEDEDE;
+    /* variable */
+}
+
+mark {
+    background: #D3D40E;
+}
+
+blockquote {
+    color: #9DA2A6;
+}
+
+table a {
+    color: #DEDEDE;
+    /* variable */
+}
+
+th,
+td {
+    border: solid 1px #474d54;
+    /* variable */
+}
+
+.task-list {
+    padding-left: 0;
+}
+
+.md-task-list-item {
+    padding-left: 1.25rem;
+}
+
+.md-task-list-item > input {
+    top: auto;
+}
+
+.md-task-list-item > input:before {
+    content: "";
+    display: inline-block;
+    width: 0.875rem;
+    height: 0.875rem;
+    vertical-align: middle;
+    text-align: center;
+    border: 1px solid #b8bfc6;
+    background-color: #363B40;
+    margin-top: -0.4rem;
+}
+
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before {
+    content: '\221A';
+    /*◘*/
+    font-size: 0.625rem;
+    line-height: 0.625rem;
+    color: #DEDEDE;
+}
+
+/** quick open **/
+.auto-suggest-container {
+    border: 0px;
+    background-color: #525C65;
+}
+
+#typora-quick-open {
+    background-color: #525C65;
+}
+
+#typora-quick-open input{
+    background-color: #525C65;
+    border: 0;
+    border-bottom: 1px solid grey;
+}
+
+.typora-quick-open-item {
+    background-color: inherit;
+    color: inherit;
+}
+
+.typora-quick-open-item.active,
+.typora-quick-open-item:hover {
+    background-color: #4D8BDB;
+    color: white;
+}
+
+.typora-quick-open-item:hover {
+    background-color: rgba(77, 139, 219, 0.8);
+}
+
+.typora-search-spinner > div {
+  background-color: #fff;
+}
+
+#write pre.md-meta-block {
+    border-bottom: 1px dashed #ccc;
+    background: transparent;
+    padding-bottom: 0.6em;
+    line-height: 1.6em;
+}
+
+.btn,
+.btn .btn-default {
+    background: transparent;
+    color: #b8bfc6;
+}
+
+.ty-table-edit {
+    border-top: 1px solid gray;
+    background-color: #363B40;
+}
+
+.popover-title {
+    background: transparent;
+}
+
+.md-image>.md-meta {
+    color: #BBBBBB;
+    background: transparent;
+}
+
+.md-expand.md-image>.md-meta {
+    color: #DDD;
+}
+
+#write>h3:before,
+#write>h4:before,
+#write>h5:before,
+#write>h6:before {
+    border: none;
+    border-radius: 0px;
+    color: #888;
+    text-decoration: underline;
+    left: -1.4rem;
+    top: 0.2rem;
+}
+
+#write>h3.md-focus:before {
+    top: 2px;
+}
+
+#write>h4.md-focus:before {
+    top: 2px;
+}
+
+.md-toc-item {
+    color: #A8C2DC;
+}
+
+#write div.md-toc-tooltip {
+    background-color: #363B40;
+}
+
+.dropdown-menu .btn:hover,
+.dropdown-menu .btn:focus,
+.md-toc .btn:hover,
+.md-toc .btn:focus {
+    color: white;
+    background: black;
+}
+
+#toc-dropmenu {
+    background: rgba(50, 54, 59, 0.93);
+    border: 1px solid rgba(253, 253, 253, 0.15);
+}
+
+#toc-dropmenu .divider {
+    background-color: #9b9b9b;
+}
+
+.outline-expander:before {
+    top: 2px;
+}
+
+#typora-sidebar {
+    box-shadow: none;
+    border-right: 1px dashed;
+    border-right: none;
+}
+
+.sidebar-tabs {
+    border-bottom:0;
+}
+
+#typora-sidebar:hover .outline-title-wrapper {
+    border-left: 1px dashed;
+}
+
+.outline-title-wrapper .btn {
+    color: inherit;
+}
+
+.outline-item:hover {
+    border-color: #363B40;
+    background-color: #363B40;
+    color: white;
+}
+
+h1.md-focus .md-attr,
+h2.md-focus .md-attr,
+h3.md-focus .md-attr,
+h4.md-focus .md-attr,
+h5.md-focus .md-attr,
+h6.md-focus .md-attr,
+.md-header-span .md-attr {
+    color: #8C8E92;
+    display: inline;
+}
+
+.md-comment {
+    color: #5a95e3;
+    opacity: 1;
+}
+
+.md-inline-math svg {
+    color: #b8bfc6;
+}
+
+#math-inline-preview .md-arrow:after {
+    background: black;
+}
+
+.modal-content {
+    background: var(--bg-color);
+    border: 0;
+}
+
+.modal-title {
+    font-size: 1.5em;
+}
+
+.modal-content input {
+    background-color: rgba(26, 21, 21, 0.51);
+    color: white;
+}
+
+.modal-content .input-group-addon {
+    color: white;
+}
+
+.modal-backdrop {
+    background-color: rgba(174, 174, 174, 0.7);
+}
+
+.modal-content .btn-primary {
+    border-color: var(--primary-color);
+}
+
+.md-table-resize-popover {
+    background-color: #333;
+}
+
+.form-inline .input-group .input-group-addon {
+    color: white;
+}
+
+#md-searchpanel {
+    border-bottom: 1px dashed grey;
+}
+
+/** UI for electron */
+
+.context-menu,
+#spell-check-panel,
+#footer-word-count-info {
+    background-color: #42464A;
+}
+
+.context-menu.dropdown-menu .divider,
+.dropdown-menu .divider {
+    background-color: #777777;
+}
+
+footer {
+    color: inherit;
+}
+
+@media (max-width: 1000px) {
+    footer {
+        border-top: none;
+    }
+    footer:hover {
+        color: inherit;
+    }
+}
+
+#file-info-file-path .file-info-field-value:hover {
+    background-color: #555;
+    color: #dedede;
+}
+
+.megamenu-content,
+.megamenu-opened header {
+    background: var(--bg-color);
+}
+
+.megamenu-menu-panel h2,
+.megamenu-menu-panel h1,
+.long-btn {
+    color: inherit;
+}
+
+.megamenu-menu-panel input[type='text'] {
+    background: inherit;
+    border: 0;
+    border-bottom: 1px solid;
+}
+
+#recent-file-panel-action-btn {
+    background: inherit;
+    border: 1px grey solid;
+}
+
+.megamenu-menu-panel .dropdown-menu > li > a {
+    color: inherit;
+    background-color: #2F353A;
+    text-decoration: none;
+}
+
+.megamenu-menu-panel table td:nth-child(1) {
+    color: inherit;
+    font-weight: bold;
+}
+
+.megamenu-menu-panel tbody tr:hover td:nth-child(1) {
+    color: white;
+}
+
+.modal-footer .btn-default, 
+.modal-footer .btn-primary,
+.modal-footer .btn-default:not(:hover) {
+    border: 1px solid;
+    border-color: transparent;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
+    color: white;
+    border: 1px solid #ddd;
+    background-color: inherit;
+}
+
+.modal-header {
+    border-bottom: 0;
+}
+
+.modal-footer {
+    border-top: 0;
+}
+
+#recent-file-panel tbody tr:nth-child(2n-1) {
+    background-color: transparent !important;
+}
+
+.megamenu-menu-panel tbody tr:hover td:nth-child(2) {
+    color: inherit;
+}
+
+.megamenu-menu-panel .btn {
+    border: 1px solid #eee;
+    background: transparent;
+}
+
+.mouse-hover .toolbar-icon.btn:hover,
+#w-full.mouse-hover,
+#w-pin.mouse-hover {
+    background-color: inherit;
+}
+
+.typora-node::-webkit-scrollbar {
+    width: 5px;
+}
+
+.typora-node::-webkit-scrollbar-thumb:vertical {
+    background: rgba(250, 250, 250, 0.3);
+}
+
+.typora-node::-webkit-scrollbar-thumb:vertical:active {
+    background: rgba(250, 250, 250, 0.5);
+}
+
+#w-unpin {
+    background-color: #4182c4;
+}
+
+#top-titlebar, #top-titlebar * {
+    color: var(--item-hover-text-color);
+}
+
+.typora-sourceview-on #toggle-sourceview-btn,
+#footer-word-count:hover,
+.ty-show-word-count #footer-word-count {
+    background: #333333;
+}
+
+#toggle-sourceview-btn:hover {
+    color: #eee;
+    background: #333333;
+}
+
+/** focus mode */
+.on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container) * {
+    color: #686868 !important;
+}
+
+.on-focus-mode .md-end-block:not(.md-focus) img,
+.on-focus-mode .md-task-list-item:not(.md-focus-container)>input {
+    opacity: #686868 !important;
+}
+
+.on-focus-mode li[cid]:not(.md-focus-container){
+    color: #686868;
+}
+
+.on-focus-mode .md-fences.md-focus .CodeMirror-code>*:not(.CodeMirror-activeline) *,
+.on-focus-mode .CodeMirror.cm-s-inner:not(.CodeMirror-focused) * {
+    color: #686868 !important;
+}
+
+.on-focus-mode .md-focus,
+.on-focus-mode .md-focus-container {
+    color: #fff;
+}
+
+.on-focus-mode #typora-source .CodeMirror-code>*:not(.CodeMirror-activeline) * {
+    color: #686868 !important;
+}
+
+
+/*diagrams*/
+#write .md-focus .md-diagram-panel {
+    border: 1px solid #ddd;
+    margin-left: -1px;
+    width: calc(100% + 2px);
+}
+
+/*diagrams*/
+#write .md-focus.md-fences-with-lineno .md-diagram-panel {
+    margin-left: auto;
+}
+
+.md-diagram-panel-error {
+    color: #f1908e;
+}
+
+.active-tab-files #info-panel-tab-file,
+.active-tab-files #info-panel-tab-file:hover,
+.active-tab-outline #info-panel-tab-outline,
+.active-tab-outline #info-panel-tab-outline:hover {
+    color: #eee;
+}
+
+.sidebar-footer-item:hover,
+.footer-item:hover {
+    background: inherit;
+    color: white;
+}
+
+.ty-side-sort-btn.active,
+.ty-side-sort-btn:hover,
+.selected-folder-menu-item a:after {
+    color: white;
+}
+
+#sidebar-files-menu {
+    border:solid 1px;
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.79);
+    background-color: var(--bg-color);
+}
+
+.file-list-item {
+    border-bottom:none;
+}
+
+.file-list-item-summary {
+    opacity: 1;
+}
+
+.file-list-item.active:first-child {
+    border-top: none;
+}
+
+.file-node-background {
+    height: 32px;
+}
+
+.file-library-node.active>.file-node-content,
+.file-list-item.active {
+    color: white;
+    color: var(--active-file-text-color);
+}
+
+.file-library-node.active>.file-node-background{
+    background-color: rgb(34, 34, 34);
+    background-color: var(--active-file-bg-color);
+}
+.file-list-item.active {
+    background-color: rgb(34, 34, 34);
+    background-color: var(--active-file-bg-color);
+}
+
+#ty-tooltip {
+    background-color: black;
+    color: #eee;
+}
+
+.md-task-list-item>input {
+    margin-left: -1.3em;
+    margin-top: 0.3rem;
+    -webkit-appearance: none;
+}
+
+.md-mathjax-midline {
+    background-color: #57616b;
+    border-bottom: none;
+}
+
+footer.ty-footer {
+    border-color: #656565;
+}
+
+.ty-preferences .btn-default {
+    background: transparent;
+}
+.ty-preferences .btn-default:hover {
+    background: #57616b;
+}
+
+.ty-preferences select {
+    border: 1px solid #989698;
+    height: 21px;
+}
+
+.ty-preferences .nav-group-item.active {
+    background: var(--item-hover-bg-color);
+}
+
+.ty-preferences input[type="search"] {
+    border-color: #333;
+    background: #333;
+    line-height: 22px;
+    border-radius: 6px;
+    color: white;
+}
+
+.ty-preferences input[type="search"]:focus {
+    box-shadow: none;
+}
+
+[data-is-directory="true"] .file-node-content {
+    margin-bottom: 0;
+}
+
+.file-node-title {
+    line-height: 22px;
+}
+
+.html-for-mac .file-node-open-state, .html-for-mac .file-node-icon {
+    line-height: 26px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(230, 230, 230, 0.30);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: rgba(230, 230, 230, 0.50);
+}
+
+#typora-sidebar:hover div.sidebar-content-content::-webkit-scrollbar-thumb:horizontal {
+    background: rgba(230, 230, 230, 0.30);
+}
+
+.nav-group-item:active {
+    background-color: #474d54;
+}
+
+.md-search-hit {
+    background: rgba(199, 140, 60, 0.81);
+    color: #eee;
+}
+
+.md-search-hit * {
+    color: #eee;
+}
+
+#md-searchpanel input {
+    color: white;
+}
+
+
+</style>
+</head>
+<body class='typora-export os-windows' >
+<div  id='write'  class = ''><h1><a name="从句" class="md-header-anchor"></a><span>从句</span></h1><h2><a name="名词性从句" class="md-header-anchor"></a><span>名词性从句</span></h2><h3><a name="主语从句" class="md-header-anchor"></a><span>主语从句</span></h3><h4><a name="that" class="md-header-anchor"></a><span>that</span></h4><p><span>that 引导的主语从句通常以 it 作先行主语。</span></p><ul><li><span>It + be + 形容词 + that ...</span></li><li><span>It + be + said/believed/reported/hoped/announced/known + that ...</span></li><li><span>It + seem/happen/appear + that ...</span></li><li><span>It + be + 名词 + that ...</span></li></ul><h4><a name="wh-" class="md-header-anchor"></a><span>wh-</span></h4><p><span>有时也以 it 作先行词。</span></p><h3><a name="表语从句" class="md-header-anchor"></a><span>表语从句</span></h3><h4><a name="that-n18" class="md-header-anchor"></a><span>that</span></h4><ul><li><span>名词主语（常为 fact、truth 或 idea、opinion、belief、view、feeling、suggestion、plan 等） + be + that ...</span></li><li><span>wh- 引导的主语从句 + be + that ...</span></li></ul><h4><a name="wh--n24" class="md-header-anchor"></a><span>wh-</span></h4><ul><li><span>This/That + be + wh- ...</span></li><li><span>名词主语 + be + wh- ...</span></li></ul><h3><a name="同位语从句" class="md-header-anchor"></a><span>同位语从句</span></h3><p><span>同位语从句先行词一般是 news、fact、conclusion、hope、decision、belief、promise、truth、report、idea 等。</span></p><ul><li><span>名词 + that ...</span></li><li><span>名词 + wh ...</span></li></ul><blockquote><p><span>I have no idea how they were able to get it done in so short a time.</span></p></blockquote><h3><a name="宾语从句" class="md-header-anchor"></a><span>宾语从句</span></h3><h4><a name="that-n40" class="md-header-anchor"></a><span>that</span></h4><ul><li><span>动词（hope、hear、see、know、think、suppose、believe、agree、expect、feel、find、guess、mean、promise、learn 等） + that ...</span>
+<span>若从句较短，在 think、believe、see、know、hear 等词后可以省略 that。</span>
+<span>在 doubt 的否定结构才可接 that 从句。</span></li></ul><blockquote><p><span>I don&#39;t doubt that he will be against the idea.</span>
+<span>I doubt whether he will be against the idea.</span></p></blockquote><ul><li><span>动词（tell、inform、explain、remind、warn 等） + 间接宾语 + that ...</span></li><li><span>动词（think、consider、find、take ... for granted、see to、make ... known、make...clear 等） + it + 形容词或惯用搭配 + that ...</span></li><li><span>特殊搭配：except that ... 可以作为介词宾语。</span></li></ul><h4><a name="wh--n53" class="md-header-anchor"></a><span>wh-</span></h4><ul><li><span>动词（see、know、wonder、show、ask、tell、decide、find、out、imagine 等） + （间接宾语） + wh- ...</span></li></ul><blockquote><p><span>He told us which website we could log on for the information we needed.</span></p></blockquote><ul><li><span>介词 + wh- ...</span></li></ul><blockquote><p><span>She will write a book on how young mothers should raise their babies.</span></p></blockquote><h3><a name="其他" class="md-header-anchor"></a><span>其他</span></h3><h4><a name="形容词宾语从句" class="md-header-anchor"></a><span>形容词宾语从句</span></h4><p><span>此处形容词为 certain、afraid、sure、anxious、worried、surprised、happy、disappointed 等表示情感心理或确信意义的词。</span></p><ul><li><span>be + 形容词 + that ...</span></li><li><span>be + not + 形容词 + wh- ...</span></li></ul><h4><a name="what-和-that-的选择" class="md-header-anchor"></a><span>what 和 that 的选择</span></h4><p><span>what 在从句充当成分；that 仅作连接使用。</span></p><h4><a name="表示任一" class="md-header-anchor"></a><span>表示任一</span></h4><ul><li><span>whoever ... = anyone who ...</span></li><li><span>whatever ... = anything that ...</span></li><li><span>whichever ... = any one which ...</span></li><li><span>whomever 是 whoever 的宾格，但多使用 whoever 代替 whomever</span></li></ul><p><span>*</span><span> 不得使用 no matter wh- ...</span></p><h2><a name="定语从句" class="md-header-anchor"></a><span>定语从句</span></h2><h3><a name="分类" class="md-header-anchor"></a><span>分类</span></h3><p><span>限制性定语从句对先行词具有限制和确定作用，若去掉，主语意义会不明确，其前后无逗号；非限制性定语从句去掉不影响主句意义，常用逗号与主句分割。</span></p><h3><a name="关系代词" class="md-header-anchor"></a><span>关系代词</span></h3><p><span>先行词在从句中作主语、宾语时当用关系代词。</span></p><h4><a name="关系代词的选择" class="md-header-anchor"></a><span>关系代词的选择</span></h4><ul><li><span>若在从句充当</span><strong><span>主语</span></strong><span>，在限制性定语从句中，who 指人，which 指物，that 均可；非限制性定语从句中，不能使用 that 。</span></li><li><span>若在从句充当</span><strong><span>宾语</span></strong><span>，在限制性定语从句中，who/whom 指人，which 指物，that 均可，可以省略；非限制性定语从句中，不能使用 that 也不能省略。</span></li><li><span>特别地，作为</span><strong><span>介词宾语</span></strong><span>时，将介词提到关系代词前，并且只使用 whom 指人， which 指物；在限制性定语从句中介词可不提前，此时也可以使用 that、who 甚至省略。</span></li><li><span>若在从句充当</span><strong><span>名词修饰语</span></strong><span>，使用 whose ，若先行词是物或抽象名词，也可以使用 of which。特别地，在非限制性定语从句中，在基数词或some、most、all、none、neither、either等词后，不使用 which，而使用 of which/whom 。</span></li></ul><blockquote><p><span>These books, two of which I have read, are interesting.</span></p></blockquote><ul><li><span>若从句</span><strong><span>修饰整个主句</span></strong><span>，在限制性定语从句中，使用 which 或 as。其中 as 表示“正如”，在SVO定语从句中，作主语一般不用 as ；从句在句首时，不能使用 which 。</span></li></ul><h4><a name="常用-that-的情况" class="md-header-anchor"></a><span>常用 that 的情况</span></h4><p><span>必须使用 that 的情况：</span></p><ul><li><span>先行词被形容词的最高级，或序数词、only修饰</span></li><li><span>先行词为不定代词</span>
+<span>不定代词如 all, everything, anything, nothing, little, much, none, the one, any, few, the very, the only, the right, just the, exactly the, every, no</span></li><li><span>先行词为人和物的名词词组</span></li></ul><blockquote><p><span>They talked for about an hour of things and persons that they remembered in the school.</span></p></blockquote><h4><a name="其他特殊结构" class="md-header-anchor"></a><span>其他特殊结构</span></h4><ul><li><span>the same/such + 名词 + as</span></li><li><span>than 表示比较</span></li></ul><blockquote><p><span>The boy ate more vitamin pills than was required.</span></p></blockquote><h3><a name="关系副词" class="md-header-anchor"></a><span>关系副词</span></h3><p><span>先行词在从句中作状语时当用关系副词。</span></p><figure><table><thead><tr><th style='text-align:center;' ><span>关系副词</span></th><th style='text-align:center;' ><span>先行词在从句中的成分</span></th><th style='text-align:center;' ><span>备注</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>when</span></td><td style='text-align:center;' ><span>时间状语</span></td><td style='text-align:center;' >&nbsp;</td></tr><tr><td style='text-align:center;' ><span>where</span></td><td style='text-align:center;' ><span>地点状语</span></td><td style='text-align:center;' >&nbsp;</td></tr><tr><td style='text-align:center;' ><span>why</span></td><td style='text-align:center;' ><span>原因状语</span></td><td style='text-align:center;' ><span>只能用于限制性定语从句</span></td></tr></tbody></table></figure><p><span>通常不用 the reason for which ...，常用 why、that，甚至省略。</span></p><h2><a name="状语从句" class="md-header-anchor"></a><span>状语从句</span></h2><h3><a name="时间状语从句" class="md-header-anchor"></a><span>时间状语从句</span></h3><h4><a name="同时发生" class="md-header-anchor"></a><span>同时发生</span></h4><ul><li><span>两动作均为重复性动作，使用 when、whenever、no matter when、every/each time ，指“每当”</span></li></ul><blockquote><p><span>Whenever it is his turn to speak, he gets nervous.</span></p></blockquote><ul><li><span>两动作均发生在同一时间点，无延续性，使用 when、as soon as、once、the moment、No sooner had ... than ...、Hardly had ... when ...，指“当……，”、“一……就”</span></li></ul><blockquote><p><span>When I get the news, I&#39;ll let you know as soon as possible.</span></p></blockquote><ul><li><span>两动作均有延续性，使用 as、when、while</span></li></ul><blockquote><p><span>He whistled as he walked along the path.</span></p></blockquote><ul><li><span>主句动作在从句动作过程中发生，使用 when、while、as</span></li></ul><blockquote><p><span>As I was getting on the bus, someone called me.</span></p></blockquote><h4><a name="先后发生" class="md-header-anchor"></a><span>先后发生</span></h4><ul><li><span>主句动作先于或后于从句发生，使用 when、after、before</span></li></ul><blockquote><p><span>I&#39;ll tell you what I think of the book when I finish reading it.</span></p></blockquote><ul><li><span>主句动作一直持续，直到从句动作发生时终止，使用 till、until</span></li></ul><blockquote><p><span>I waited patiently until the lady at the information desk finished her telephone call.</span></p></blockquote><ul><li><span>主句动作在从句动作发生后持续发生，直到现在或过去某一时刻，使用 since</span></li></ul><blockquote><p><span>I haven&#39;t had a good sleep since the test started.</span></p></blockquote><h3><a name="地点状语从句" class="md-header-anchor"></a><span>地点状语从句</span></h3><p><span>连词有 where 和 wherever 。有时具有条件含义</span></p><blockquote><p><span>Wherever the forests are well protected, there are all kinds of wild lives.</span></p></blockquote><h3><a name="原因状语从句" class="md-header-anchor"></a><span>原因状语从句</span></h3><figure><table><thead><tr><th style='text-align:center;' ><span>连词</span></th><th style='text-align:center;' ><span>语气</span></th><th style='text-align:center;' ><span>表示</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>because</span></td><td style='text-align:center;' ><span>最强</span></td><td style='text-align:center;' ><span>直接的理由，强调未知的事实</span></td></tr><tr><td style='text-align:center;' ><span>since</span></td><td style='text-align:center;' ><span>其次</span></td><td style='text-align:center;' ><span>已知的事实，强调引起的后果</span></td></tr><tr><td style='text-align:center;' ><span>as</span></td><td style='text-align:center;' ><span>最弱</span></td><td style='text-align:center;' ><span>已知的事实，强调引起的后果</span></td></tr></tbody></table></figure><blockquote><p><span>He had to do a part-time job after work because he needed money for hismarriage.</span>
+<span>Since you know you are wrong, you had better admit it.</span>
+<span>As he couldn&#39;t express himself freely, he had to make some gestures.</span></p></blockquote><h4><a name="特殊结构" class="md-header-anchor"></a><span>特殊结构</span></h4><ul><li><span>because 引导的从句可以带修饰语 just、only ，也可以用于强调句，或 not ... but 并列结构</span></li></ul><blockquote><p><span>The officer punished the boy just because he wanted to teach him a lesson.</span></p></blockquote><ul><li><span>可以使用 now that、seeing that 代替 since、as</span></li><li><span>可以使用 when、considering that 代替 since </span></li></ul><h3><a name="方式状语从句" class="md-header-anchor"></a><span>方式状语从句</span></h3><p><span>连词有 as、as if、as though，口语中可用 the way。</span></p><blockquote><p><span>I&#39;ll work as they did.</span>
+<span>I don&#39;t like the way he addresses the audience.</span></p></blockquote><h4><a name="as-if-和-as-though-的虚拟语气" class="md-header-anchor"></a><span>as if 和 as though 的虚拟语气</span></h4><p><span>在从句表示说话人假想时，使用虚拟语气，其符合 wish that ... 的原则。</span></p><blockquote><p><span>The lady treat the boy well as if he were/was her own son.</span>
+<span>They talked as though they had been good friends for years.</span></p></blockquote><p><span>具体规则：</span></p><ul><li><span>假想情况与主句主句主语动作同时发生，从句用过去时，be 动词用 were/was</span></li></ul><blockquote><p><span>I wish I were ten years younger.</span></p></blockquote><ul><li><span>假想情况在主句主语的动作之前发生，从句用过去完成时</span></li></ul><blockquote><p><span>I wish I hadn&#39;t taken the course.</span></p></blockquote><ul><li><span>假想情况在主句主语的动作之后发生，从句用 would + 动词原形</span></li></ul><blockquote><p><span>I wish that we would have a good harvest this year.</span></p></blockquote><h3><a name="结果状语从句" class="md-header-anchor"></a><span>结果状语从句</span></h3><ul><li><span>so + 形容词或副词 + that ...</span></li></ul><blockquote><p><span>The theory was so advanced that few people could understand it.</span></p></blockquote><ul><li><p><span>such + 带形容词的名词词组 + that ...</span></p><ul><li><span>such a(n) + 形容词 + 单数可数名词 + that ...</span></li><li><span>such + 形容词 + 复数可数名词 + that ...</span></li><li><span>such + 形容词 + 不可数名词 + that ...</span></li></ul></li></ul><blockquote><p><span>I had such a good experience that I would always remember it.</span></p></blockquote><p><span>可以使用 so + 形容词 + a(n) + 单数可数名词 + that ... 替换 such a(n) + 形容词 + 单数可数名词 + that ... ，其他不行，只能使用 so ... that ...。</span></p><p><span>若名词的修饰为 many、much、few、little 惯用 so 不用 such。</span></p><blockquote><p><span>There were so many people in the room that I couldn&#39;t get in.</span></p></blockquote><ul><li><span>so that ... 或 that ... ，见目的状语从句。</span></li></ul><h3><a name="目的状语从句" class="md-header-anchor"></a><span>目的状语从句</span></h3><p><span>连词有 (so) that、in order that、for fear that、in case、lest。</span></p><h4><a name="so-that-在目的状语从句与结果状语从句的区别" class="md-header-anchor"></a><span>so that 在目的状语从句与结果状语从句的区别</span></h4><ul><li><span>目的状语从句中一般有情态动词 can、could、may、might、will、would、should</span></li></ul><blockquote><p><span>目的状语从句：I wrote as clearly as possible so that I might get high marks.</span>
+<span>结果状语从句：I wrote as clearly as possible, so that I got high marks.</span></p></blockquote><ul><li><span>目的状语从句可以置于句首，结果状语从句不能</span></li></ul><blockquote><p><span>So that/In order that they can have more time for study, they often eat fast food.</span></p></blockquote><h3><a name="条件状语从句" class="md-header-anchor"></a><span>条件状语从句</span></h3><p><span>条件句分真实条件句和非真实条件句。</span></p><blockquote><p><span>真实条件句：If the working conditions are not too bad, I will accept the job.</span>
+<span>非真实条件句：If the working conditions were not too bad, I would accept the job.</span></p></blockquote><h4><a name="真实条件句" class="md-header-anchor"></a><span>真实条件句</span></h4><p><span>连词有 if、unless、in case、as/so long as、when、once。</span></p><h4><a name="非真实条件句" class="md-header-anchor"></a><span>非真实条件句</span></h4><p><span>非真实条件句使用虚拟语态。</span></p><ul><li><span>与现在事实相反，从句用动词过去时（be 动词用 were，口语中可以出现 was），主句用 would/should/could/might + 动词原形</span></li><li><span>与过去事实相反，从句用 had + 过去分词，主句用 would/should/could/might have + 过去分词</span></li></ul><blockquote><p><span>If the place had not been far away, we could have walked there.</span></p></blockquote><ul><li><span>与将来事实相反，从句用 should/were to/was to + 动词原形/动词过去式，主句用 would/should/could/might + 动词原形</span></li></ul><blockquote><p><span>If it should be fine tomorrow, we would go on with our harvest.</span></p></blockquote><p><span>*</span><span> 若从句和主句时间不一致，动词形式当适当调整。</span></p><blockquote><p><span>If he had set out earlier, he would be home now.</span></p></blockquote><h3><a name="让步状语从句" class="md-header-anchor"></a><span>让步状语从句</span></h3><ul><li><span>although、though、even if、even though、while</span>
+<span>*</span><span> 在 although、though 引导的让步状语从句中，主句不能用 but ，但可以用 yet。</span>
+<span>*</span><span> while 置于句首，相当于 although；置于句中，表示对比关系。</span></li><li><span>名词/形容词/副词/动词 + as/though + 主语 + 谓语</span></li><li><span>whatever、whoever、however、wherever、no matter wh-</span></li><li><span>(no matter) whether ... or</span></li></ul><blockquote><p><span>Whether you come personally or you telephone us, we will have a table for you.</span></p></blockquote><h3><a name="比较状语从句" class="md-header-anchor"></a><span>比较状语从句</span></h3><p><span>连词有 as、than。</span></p><blockquote><p><span>That night she came home later than she usually does.</span>
+<span>They don&#39;t work as hard as they used to.</span></p></blockquote><h1><a name="时态" class="md-header-anchor"></a><span>时态</span></h1><h2><a name="一般现在时" class="md-header-anchor"></a><span>一般现在时</span></h2><ul><li><span>经常反复发生的动作</span></li></ul><blockquote><p><span>It never snows here in winter.</span></p></blockquote><ul><li><span>主语当前的特征和状态</span></li></ul><blockquote><p><span>The orchestra plays classical light music beautifully.</span></p></blockquote><ul><li><span>客观真理</span></li></ul><blockquote><p><span>A molecule is made up of atoms.</span></p></blockquote><ul><li><span>剧本、新闻标题、动作解说、戏剧性描绘</span></li></ul><blockquote><p><span>I put a small piece of zinc into the test-tube and add some acid to it.</span>
+<span>US comes to standstill in govt shutdown.</span></p></blockquote><ul><li><span>在时间、条件状语从句中表示将来时</span></li><li><span>将来时间，见后</span></li></ul><h2><a name="一般过去时" class="md-header-anchor"></a><span>一般过去时</span></h2><ul><li><span>主语过去的特征和状态</span></li></ul><blockquote><p><span>He was a science teacher years ago.</span></p></blockquote><ul><li><span>过去某一具体时间发生过的动作</span></li></ul><blockquote><p><span>Last night I gave a lecture in the art centre.</span></p></blockquote><ul><li><span>描述已故人的动作</span></li></ul><blockquote><p><span>Mark Twain wrote a lot of short stories.</span></p></blockquote><ul><li><span>在时间、条件状语从句中表示过去将来时</span></li></ul><h2><a name="现在进行时" class="md-header-anchor"></a><span>现在进行时</span></h2><ul><li><span>正在进行的动作</span></li></ul><blockquote><p><span>They are rowing a boat on the lake.</span></p></blockquote><ul><li><span>目前一阶段正在进行的动作</span></li></ul><blockquote><p><span>We are learning the history of France this term.</span></p></blockquote><ul><li><span>将来时间，见后</span></li></ul><h2><a name="过去进行时" class="md-header-anchor"></a><span>过去进行时</span></h2><ul><li><span>过去某一时刻正在进行的动作</span></li></ul><blockquote><p><span>I was having a bath at nine last night.</span></p></blockquote><ul><li><span>过去某个过程</span></li></ul><blockquote><p><span>While I was driving along, a dog suddenly ran across the road.</span>
+<span>I was driving along when a dog suddenly ran across the road.</span>
+<span>While one policeman was keeping guard at the door, the other was watching at the gate.</span></p></blockquote><ul><li><span>故事发生的背景</span></li></ul><blockquote><p><span>It was a lovely moring. Some people were sitting on the river bank.</span></p></blockquote><ul><li><span>过去将来时间，见后</span></li></ul><h2><a name="现在完成时" class="md-header-anchor"></a><span>现在完成时</span></h2><ul><li><span>过去某一时刻发生的动作（强调对现在结果的影响）</span></li></ul><blockquote><p><span>I have bought a new pair of trousers. -&gt; Now I have a new pair of trousers.</span></p></blockquote><ul><li><span>从过去某一时间到说话时反复发生的动作，或强调该阶段发生动作的总和</span></li></ul><blockquote><p><span>The pupils have had six tests in English this term.</span></p></blockquote><p><span>*</span><span> 在一般现在时使用频度副词强调动作反复发生的频率，有广泛意义；在现在完成时中强调一段时间内发生的频度，有特指意义。</span></p><blockquote><p><span>一般现在时：He is always late.</span>
+<span>现在完成时：He has always been late so far.</span></p></blockquote><p><span>*</span><span> 常常与包含有现在时间的时间状语一同出现，如 today、this morning、this month、this year，甚至 now。</span></p><blockquote><p><span>现在还在上午：I have seen Mrs Fox this morning.</span>
+<span>现在在下午或晚上：I saw Mrs Fox this morning.</span>
+<span>They have now got everything ready.</span></p></blockquote><p><span>*</span><span> 出现于结构 This is the first/second/third/... time that ...</span></p><p><span>*</span><span> 出现在结构 have been (to/in) 与 have gone (to)</span></p><blockquote><p><span>曾去过：He has been to/in Hawaii.</span>
+<span>在路上或已到达：He has gone to Hawaii.</span></p></blockquote><ul><li><span>从过去某一时间到现在为止的动作或状态</span></li></ul><blockquote><p><span>The speaker has talked for about two hours.</span></p></blockquote><p><span>*</span><span> 不与 after 引导的状语或 from then on 连用。</span></p><blockquote><p><span>Since then, sales have been good.</span>
+<span>From then on, sales were good.</span></p></blockquote><h2><a name="过去完成时" class="md-header-anchor"></a><span>过去完成时</span></h2><ul><li><span>到过去某一时刻已经完成的动作或结束的状态</span></li></ul><blockquote><p><span>By noon, we had walked about twenty miles.</span></p></blockquote><ul><li><span>持续到过去某一时间的动作或状态</span></li></ul><blockquote><p><span>It had snowed for a week by Tuesday.</span></p></blockquote><h2><a name="现在完成进行时" class="md-header-anchor"></a><span>现在完成进行时</span></h2><ul><li><span>从过去某时间开始一直持续到现在刚停止或还在继续的动作</span></li></ul><blockquote><p><span>It has been raining since last night.</span></p></blockquote><p><span>*</span><span> 现在完成进行时只适用于表示动作，不能用于表示状态。</span></p><h2><a name="过去完成进行时" class="md-header-anchor"></a><span>过去完成进行时</span></h2><ul><li><span>从过去某时间开始一直持续到过去另一时间停止或还在继续的动作</span></li></ul><blockquote><p><span>现在完成进行时：They have been talking since morning.</span>
+<span>过去完成进行时：I knew that they had been talking since morning.</span></p></blockquote><h2><a name="将来时间的表示方法" class="md-header-anchor"></a><span>将来时间的表示方法</span></h2><p><span>*</span><span> 如要表示过去某一时间对将要发生动作的预测，助动词改为过去时即可。</span></p><ul><li><span>shall/will + 动词原形</span></li></ul><p><span>*</span><span> 带有意图感。英国英语常将 shall 用于第一人称，现在都趋向使用 will。</span></p><blockquote><p><span>We will visit the new international airport tomorrow.</span></p></blockquote><p><span>*</span><span> 可以表示将要发生的一些列动作。</span></p><blockquote><p><span>Tina will swim across the English Channel next week. She will set off at Portsmouth. We will see her off at the harbour.</span></p></blockquote><ul><li><span>shall/will be + 现在分词</span></li></ul><p><span>*</span><span> 只限于表示动作的动词，着重动作本身。</span></p><blockquote><p><span>We will be meeting the guests at the station.</span></p></blockquote><p><span>*</span><span> 这个形式比较婉转，常用于发问。</span></p><blockquote><p><span>纯粹询问将发生的动作：What places will you be visiting tomorrow?</span>
+<span>询问人的意图：What places will you visit tomorrow?</span></p></blockquote><p><span>*</span><span> 可以表示将来某时间正在进行的动作。</span></p><blockquote><p><span>I will be playing the piano when you come tomorrow.</span></p></blockquote><p><span>*</span><span> 可以表示将要发生的一些列动作，这与 shall/will + 动词原形 是相同的。</span></p><blockquote><p><span>Tina will be swimming across the English Channel next week. She will be setting off at Portsmouth. We will be seeing her off at the harbour.</span></p></blockquote><ul><li><span>shall/will have + 过去分词</span></li></ul><p><span>*</span><span> 表示到将来某一时间为止要完成的动作，强调完成。</span></p><blockquote><p><span>We have finished Chapter Five by next Tuesday.</span></p></blockquote><ul><li><span>be going to + 动词原形</span></li></ul><p><span>*</span><span> 表示事先打算，有意要发生的动作。</span></p><blockquote><p><span>I am going to write a grammar book for junior middle school students.</span></p></blockquote><p><span>*</span><span> 它与 shall/will 相比，更强调打算。后者有时强调一定情况下的反应。</span></p><blockquote><p><span>只强调打算，不说明情况的：The students are moving the desks and chairs out of the classroom. They are going to give it a thorough cleaning.</span>
+<span>说明情况而产生反应的：There is waste paper here and there. I will clean the classroom after school.</span></p></blockquote><p><span>*</span><span> 表示客观要发生。</span></p><blockquote><p><span>It&#39;s going to rain.</span>
+<span>Watch out! The milk is going to boil.</span></p></blockquote><ul><li><span>一般现在时与现在进行时</span></li></ul><p><span>*</span><span> 仅限于表示位移转移，如 come、go、leave、arrive、fly、start 等。</span></p><p><span>*</span><span> 一般现在时表示计划或时间表规定的动作，具有定时性、不可更改；现在进行时也表示计划中的安排，但可以改变。</span></p><blockquote><p><span>Flight 105 for San Francisco leaves at 7:00 at the airport.</span>
+<span>Flight 105 for San Francisco is leaving in five minutes.</span></p></blockquote><ul><li><span>be + to do</span></li></ul><p><span>*</span><span> 表示按计划要发生的动作，尤其是报刊广播中宣布官方决定，语气正式。</span></p><blockquote><p><span>The major is to deliver a New Year speech on TV at 0:00.</span></p></blockquote><p><span>*</span><span> 表达意图时有时与 be going to 相同，但 be to 更强调人为控制，表示非人为控制的行为不能使用后者。</span></p><p><span>*</span><span> 用于 if ... 从句表示想要做，相当于 want、intend。</span></p><blockquote><p><span>If one is to succeed, he must work as hard as he can.</span></p></blockquote><ul><li><span>be about to do</span></li></ul><p><span>*</span><span> 表示即将发生，不能与确定时间的时间状语连用。</span></p></div>
+</body>
+</html>
